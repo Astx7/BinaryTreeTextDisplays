@@ -1,0 +1,24 @@
+// Initially, pass in the pointer to the root and aLevel = 0
+// Prints the tree rotated -90 degrees, with the root all the way to the left
+// Written in C# Windows forms
+
+void printTree(Node aNodePointer, int aLevel)
+        {
+            if (aNodePointer != null)
+            {
+                printNode(aNodePointer.RightChildNode, aLevel + 1);
+
+                if (aLevel != 0)
+                {
+                    for (int i = 0; i < aLevel - 1; i++)
+                    {
+                        uTreeLabel.Text += "|    ";
+                    }
+
+                    uTreeLabel.Text += "+----" + aNodePointer.Print() + "\n";
+                }
+                else
+                    uTreeLabel.Text += aNodePointer.Print() + "\n";
+                printNode(aNodePointer.LeftChildNode, aLevel + 1);
+            }
+        }
